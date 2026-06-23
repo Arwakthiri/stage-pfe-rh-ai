@@ -1,0 +1,645 @@
+/* ═══════════════════════════════════════════════════════════════
+   LOGIN PAGE — SEGULA Style exact (red accent, tech background)
+   App: RH Platform IA
+═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --red: #e8192c;
+  --red-dark: #c41020;
+  --red-glow: rgba(232, 25, 44, 0.4);
+}
+
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #06091a;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   LEFT PANEL — Dark photo background (SEGULA style)
+══════════════════════════════════════════════════════════════ */
+.login-left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 36px 44px;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.login-left-photo {
+  position: absolute;
+  inset: 0;
+  background-image: url('/background.png');
+  background-size: cover;
+  background-position: center center;
+  z-index: 0;
+}
+
+/* Gradient overlay — très léger, image vivante */
+.login-left-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg,
+      rgba(2, 5, 15, 0.20) 0%,
+      rgba(3, 6, 18, 0.05) 50%,
+      rgba(3, 6, 18, 0.15) 100%);
+  z-index: 1;
+}
+
+/* Bottom fade — juste assez pour lire le texte */
+.login-left-bottom-grad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to top, rgba(2, 5, 15, 0.55) 0%, transparent 100%);
+  z-index: 2;
+}
+
+
+/* ── Logo — top left ─────────────────────────────────────────── */
+.login-logo {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+}
+
+.login-segula-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  /* fond blanc arrondi pour lisibilité sur le fond photo sombre */
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 10px;
+  padding: 6px 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Tagline — bottom left (like "Concevoir l'avenir ensemble") ── */
+.login-tagline {
+  position: relative;
+  z-index: 3;
+}
+
+.login-tagline h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.18;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* Accent word — RED like SEGULA "ensemble" */
+.login-tagline h2 .highlight {
+  color: var(--red);
+}
+
+.login-tagline p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.55;
+  max-width: 340px;
+}
+
+.login-footer-left {
+  position: relative;
+  z-index: 3;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.22);
+  margin-top: 16px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RIGHT PANEL — slightly off-white, professional
+══════════════════════════════════════════════════════════════ */
+.login-right {
+  width: 430px;
+  min-width: 390px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 44px 48px;
+  position: relative;
+  z-index: 10;
+  background: #f2f4f8;
+  box-shadow: -10px 0 60px rgba(0, 0, 0, 0.35);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Controls — top right: lang switcher + theme toggle */
+.login-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 5;
+}
+
+/* ── Form header ─────────────────────────────────────────────── */
+.login-form-header {
+  margin-bottom: 26px;
+}
+
+.login-form-header .pre-title {
+  display: block;
+  font-size: 0.82rem;
+  color: #6b7280;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+
+.login-form-header h1 {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #111827;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* "RH Platform" black + "IA" red — like SEGULA's black+red */
+.login-form-header h1 .brand-name {
+  color: #111827;
+  font-weight: 900;
+}
+
+.login-form-header h1 .brand-accent {
+  color: var(--red);
+  font-weight: 900;
+}
+
+/* Red underline — SEGULA signature */
+.login-title-underline {
+  display: block;
+  width: 44px;
+  height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+  margin: 10px 0 12px;
+}
+
+.login-form-header .subtitle {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* ── Form ────────────────────────────────────────────────────── */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lf-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.lf-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+/* Input — icon on RIGHT like SEGULA */
+.lf-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.lf-input {
+  width: 100%;
+  padding: 11px 38px 11px 12px;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  color: #111827;
+  font-family: inherit;
+  font-size: 0.87rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.lf-input::placeholder {
+  color: #9ca3af;
+}
+
+.lf-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(232, 25, 44, 0.1);
+}
+
+.lf-icon-right {
+  position: absolute;
+  right: 11px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.lf-icon-right:hover {
+  color: var(--red);
+}
+
+/* Remember / Forgot */
+.login-remember-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.8rem;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label input[type='checkbox'] {
+  width: 14px;
+  height: 14px;
+  accent-color: var(--red);
+  cursor: pointer;
+}
+
+/* "Mot de passe oublié?" — RED like SEGULA */
+.forgot-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--red);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.forgot-link:hover {
+  opacity: 0.7;
+}
+
+/* Submit — RED full-width button like SEGULA */
+.login-btn-submit {
+  width: 100%;
+  padding: 13px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 6px;
+  background: var(--red);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px var(--red-glow);
+  letter-spacing: 0.02em;
+}
+
+.login-btn-submit:hover:not(:disabled) {
+  background: var(--red-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--red-glow);
+}
+
+.login-btn-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.login-btn-submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Divider */
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d1d5db;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+}
+
+/* Social buttons — side by side exactly like SEGULA */
+.social-btns {
+  display: flex;
+  gap: 10px;
+}
+
+.social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 10px;
+  background: #ffffff;
+  border: 1.5px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.social-btn:hover {
+  border-color: var(--red);
+  box-shadow: 0 2px 8px rgba(232, 25, 44, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Request access */
+.request-access {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.request-access a {
+  color: var(--red);
+  font-weight: 700;
+  text-decoration: none;
+  margin-left: 4px;
+}
+
+.request-access a:hover {
+  text-decoration: underline;
+}
+
+/* Error alert */
+.login-alert-error {
+  padding: 10px 13px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #dc2626;
+  font-size: 0.81rem;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+/* Language switcher — light style */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  padding: 5px 8px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.04em;
+}
+
+.lang-btn:hover {
+  color: #374151;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.lang-btn.active {
+  background: var(--red);
+  color: #fff;
+}
+
+/* Theme toggle — adapts to white panel */
+.theme-toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: 1.5px solid #e5e7eb;
+  background: #f9fafb;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+  border-color: var(--red);
+  background: rgba(232, 25, 44, 0.05);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal-box {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 860px) {
+  .login-left {
+    display: none;
+  }
+
+  .login-right {
+    width: 100%;
+    min-width: unset;
+    padding: 28px 20px;
+    box-shadow: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DARK MODE OVERRIDES — responds to [data-theme='dark'] on <html>
+══════════════════════════════════════════════════════════════ */
+[data-theme='dark'] .login-right {
+  background: #0f1629;
+  box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
+}
+
+[data-theme='dark'] .login-form-header .pre-title {
+  color: #94a3b8;
+}
+
+[data-theme='dark'] .login-form-header h1 .brand-name {
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .login-form-header .subtitle {
+  color: #64748b;
+}
+
+[data-theme='dark'] .lf-label {
+  color: #94a3b8;
+}
+
+[data-theme='dark'] .lf-input {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .lf-input::placeholder {
+  color: #64748b;
+}
+
+[data-theme='dark'] .lf-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(232, 25, 44, 0.15);
+}
+
+[data-theme='dark'] .lf-icon-right {
+  color: #64748b;
+}
+
+[data-theme='dark'] .checkbox-label {
+  color: #94a3b8;
+}
+
+[data-theme='dark'] .login-divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+[data-theme='dark'] .login-divider::before,
+[data-theme='dark'] .login-divider::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .social-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: #e2e8f0;
+}
+
+[data-theme='dark'] .social-btn:hover {
+  border-color: var(--red);
+  background: rgba(232, 25, 44, 0.08);
+}
+
+[data-theme='dark'] .request-access {
+  color: #64748b;
+}
+
+[data-theme='dark'] .lang-switcher {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .lang-btn {
+  color: #64748b;
+}
+
+[data-theme='dark'] .lang-btn:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='dark'] .lang-btn.active {
+  background: var(--red);
+  color: #fff;
+}
+
+[data-theme='dark'] .theme-toggle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme='dark'] .theme-toggle-btn:hover {
+  border-color: var(--red);
+  background: rgba(232, 25, 44, 0.1);
+}
+
+[data-theme='dark'] .login-alert-error {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+[data-theme='dark'] .modal-box {
+  background: #0f1629;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

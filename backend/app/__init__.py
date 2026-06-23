@@ -1,0 +1,1 @@
+# Plateforme RH Intelligente — Backend
