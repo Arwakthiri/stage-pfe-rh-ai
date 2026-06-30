@@ -7,6 +7,7 @@ import EmployeeDashboard from './pages/EmployeeDashboard';
 import RHDashboard from './pages/RHDashboard';
 import DashboardRouter from './pages/Dashboard';   // garde le dashboard admin existant
 import ProfilePage from './pages/ProfilePage';
+import ChatbotPage from './pages/ChatbotPage';
 import './i18n/index.js';
 
 /* ── Redirection automatique selon le rôle ─────────────────── */
@@ -34,6 +35,14 @@ export default function App() {
               element={
                 <ProtectedRoute allowedRoles={['employe']}>
                   <EmployeeDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/employe/chatbot"
+              element={
+                <ProtectedRoute allowedRoles={['employe']}>
+                  <ChatbotPage />
                 </ProtectedRoute>
               }
             />

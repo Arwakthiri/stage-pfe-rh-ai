@@ -8,7 +8,7 @@ from app.models import UserRole
 # Schemas pour l'inscription
 # ─────────────────────────────────────────────
 class UserCreate(BaseModel):
-    email: EmailStr
+    email: str
     full_name: str = Field(..., min_length=2, max_length=255)
     password: str = Field(..., min_length=8, max_length=100)
     role: UserRole = UserRole.EMPLOYE
@@ -20,7 +20,7 @@ class UserCreate(BaseModel):
 # Schema pour la connexion (login)
 # ─────────────────────────────────────────────
 class UserLogin(BaseModel):
-    email: EmailStr
+    email: str
     password: str
 
 
@@ -88,3 +88,42 @@ class ChangePassword(BaseModel):
 class MessageResponse(BaseModel):
     message: str
     success: bool = True
+
+
+# ─────────────────────────────────────────────
+# Schemas pour le Chatbot et Analyses
+# ─────────────────────────────────────────────
+class ChatMessageCreate(BaseModel):
+    message: str
+
+
+class ChatMessageResponse(BaseModel):
+    id: int
+    user_id: int
+    sender: str
+    text: str
+    sentiment: Optional[str] = None
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+
+class ChatbotReplyResponse(BaseModel):
+    reply: str
+    sentiment: Optional[str] = None
+
+
+class SentimentDepartmentStat(BaseModel):
+    department: Optional[str] = None
+    sentiment: str
+    count: int
+
+
+class SentimentSummaryResponse(BaseModel):
+    global_wellbeing_score: int
+    active_alerts_count: int
+    burnout_risk_percentage: int
+    total_employees: int
+    department_stats: list[SentimentDepartmentStat]
+

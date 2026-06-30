@@ -14,6 +14,7 @@ if sys.platform == "win32":
 
 from app.database import engine, Base
 from app.auth import router as auth_router
+import asyncio
 
 
 # ─────────────────────────────────────────────
@@ -23,6 +24,47 @@ from app.auth import router as auth_router
 async def lifespan(app: FastAPI):
     Base.metadata.create_all(bind=engine)
     print("[OK] Base de donnees initialisee avec succes")
+    
+    # Seeding automatique de l'administrateur
+    try:
+        from app.database import SessionLocal
+        from app import models
+        from app.security import hash_password
+        db = SessionLocal()
+        admin_user = db.query(models.User).filter(models.User.role == models.UserRole.ADMIN).first()
+        if not admin_user:
+            admin_email = os.getenv("ADMIN_EMAIL", "admin@segula.com")
+            admin_password = os.getenv("ADMIN_PASSWORD", "adminpassword123")
+            hashed_pw = hash_password(admin_password)
+            new_admin = models.User(
+                email=admin_email.lower(),
+                full_name="Administrateur Segula",
+                hashed_password=hashed_pw,
+                role=models.UserRole.ADMIN,
+                department="Direction",
+                phone="+21600000000",
+                is_active=True,
+                is_verified=True,
+            )
+            db.add(new_admin)
+            db.commit()
+            print(f"[OK] Compte administrateur cree par defaut : {admin_email}")
+        else:
+            print(f"[OK] Compte administrateur existant : {admin_user.email}")
+        db.close()
+    except Exception as e:
+        print(f"[ERR] Echec de l'initialisation de l'administrateur: {e}")
+    
+    # Ingestion asynchrone des documents RAG pour ne pas bloquer le démarrage
+    from app.rag import ingest_documents
+    async def run_ingestion():
+        try:
+            await asyncio.to_thread(ingest_documents)
+        except Exception as e:
+            print(f"[RAG ERR] Échec de l'ingestion de démarrage: {e}")
+            
+    asyncio.create_task(run_ingestion())
+    
     yield
     print("[STOP] Serveur arrete")
 
@@ -79,6 +121,12 @@ app.add_middleware(
 # Routeurs
 # ─────────────────────────────────────────────
 app.include_router(auth_router)
+
+# Enregistrement des routeurs Chatbot et Analytics
+from app.chat import router as chat_router
+from app.analytics import router as analytics_router
+app.include_router(chat_router)
+app.include_router(analytics_router)
 
 
 # ─────────────────────────────────────────────

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { MessageSquare, BookOpen, ClipboardList, Bell, TrendingUp, Heart, Star, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 
@@ -69,6 +70,7 @@ const FormationCard = ({ title, duration, progress, color }) => (
 const EmployeeDashboard = () => {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const navigate = useNavigate();
 
   const firstName = user?.full_name?.split(' ')[0] || 'Collaborateur';
 
@@ -137,6 +139,7 @@ const EmployeeDashboard = () => {
           }}
             onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-3px)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+            onClick={() => navigate('/employe/chatbot')}
           >
             <div style={{
               width: 56, height: 56, borderRadius: '50%',

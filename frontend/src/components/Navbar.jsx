@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import {
   LayoutDashboard, User, Users,
-  LogOut, Sun, Moon
+  LogOut, Sun, Moon, MessageSquare
 } from 'lucide-react';
 import segulaLogo from '../assets/segula-logo.png';
 import { useAuth } from '../context/AuthContext';
@@ -64,6 +64,14 @@ const Navbar = () => {
             <User size={17} className="nav-icon" />
             {t('nav.profile')}
           </NavLink>
+
+          {/* Employé only */}
+          {user?.role === 'employe' && (
+            <NavLink to="/employe/chatbot" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+              <MessageSquare size={17} className="nav-icon" />
+              {t('dashboard.chatbot')}
+            </NavLink>
+          )}
 
           {/* Admin only */}
           {user?.role === 'admin' && (

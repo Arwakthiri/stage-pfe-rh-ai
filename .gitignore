@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Large model binaries & local artifacts
+ML/fine_tuned_*/
+ML/temp_stage1_*/
+backend/chroma_db/

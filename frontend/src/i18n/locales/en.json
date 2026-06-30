@@ -83,5 +83,24 @@
     "close": "Close",
     "search": "Search...",
     "noData": "No data available"
+  },
+  "chatbot": {
+    "welcomeMessage": "Hello! I am your AI HR Assistant. How can I help you today?",
+    "statusActive": "Powered by AI · Online",
+    "clear": "Clear conversation",
+    "confirmClear": "Do you really want to clear this conversation?",
+    "suggestionsTitle": "Suggested questions:",
+    "sugg1": "How to apply for leave?",
+    "sugg2": "Manage my workplace stress",
+    "sugg3": "Transport expenses reimbursement",
+    "sugg4": "Recommended trainings",
+    "inputPlaceholder": "Type your message here...",
+    "send": "Send",
+    "replyLeave": "As an employee, you are entitled to 25 days of paid leave per year. To submit a leave request, please use the HR portal specifying the dates and type of leave. Your direct manager will receive a notification for validation.",
+    "replyStress": "The well-being of our team members is essential. Segula Technologies offers a free, anonymous psychological helpline available 24/7 at 0800 900 800. You can also talk in confidence with your HR representative or schedule a dedicated discussion.",
+    "replyExpenses": "For professional transport expenses, we reimburse 50% of your public transport pass. Please submit your monthly proof of purchase on the HR platform before the 15th of the current month for reimbursement on the following payslip.",
+    "replyTraining": "You have several online training modules available on your dashboard (Stress Management, Team Communication). If you wish to take external training or acquire new technical skills, you can submit a request as part of your annual professional interview.",
+    "replyHello": "Hello! I am delighted to chat with you. How is your day going at Segula? Do you have any questions about leave, training, or your well-being?",
+    "replyDefault": "I have noted your message. Our AI is analyzing your request. For any urgent or complex administrative questions, please contact the Segula HR department directly."
   }
 }

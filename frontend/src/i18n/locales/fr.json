@@ -83,5 +83,24 @@
     "close": "Fermer",
     "search": "Rechercher...",
     "noData": "Aucune donnée disponible"
+  },
+  "chatbot": {
+    "welcomeMessage": "Bonjour ! Je suis votre Assistant RH IA. Comment puis-je vous aider aujourd'hui ?",
+    "statusActive": "Propulsé par IA · En ligne",
+    "clear": "Effacer la conversation",
+    "confirmClear": "Voulez-vous vraiment effacer cette conversation ?",
+    "suggestionsTitle": "Suggestions de questions :",
+    "sugg1": "Comment poser mes congés ?",
+    "sugg2": "Gérer mon stress au travail",
+    "sugg3": "Remboursement des frais de transport",
+    "sugg4": "Formations recommandées",
+    "inputPlaceholder": "Tapez votre message ici...",
+    "send": "Envoyer",
+    "replyLeave": "En tant que collaborateur, vous bénéficiez de 25 jours de congés payés par an. Pour soumettre une demande de congés, veuillez passer par le portail RH en spécifiant les dates et le type de congé souhaité. Votre manager direct recevra une notification pour validation.",
+    "replyStress": "Le bien-être de nos collaborateurs est essentiel. Segula Technologies met à votre disposition une ligne d'écoute psychologique gratuite, anonyme et disponible 24h/24 au 0800 900 800. Vous pouvez également en parler en toute confidentialité avec votre référent RH ou planifier un entretien dédié.",
+    "replyExpenses": "Pour vos frais de transport professionnels, nous remboursons 50% de votre abonnement de transports en commun. Veuillez déposer votre justificatif d'achat mensuel sur la plateforme RH avant le 15 du mois en cours pour un remboursement sur la paye suivante.",
+    "replyTraining": "Vous disposez de plusieurs modules de formation en ligne sur votre tableau de bord (Gestion du stress, Communication en équipe). Si vous souhaitez suivre une formation externe ou acquérir de nouvelles compétences techniques, vous pouvez soumettre une demande dans le cadre de votre entretien professionnel annuel.",
+    "replyHello": "Bonjour ! Je suis ravi de discuter avec vous. Comment se déroule votre journée chez Segula ? Avez-vous des questions sur les congés, les formations ou votre bien-être ?",
+    "replyDefault": "Je prends bien note de votre message. Notre IA analyse votre demande. Pour toute urgence ou question administrative complexe, je vous invite à contacter directement le service RH de Segula."
   }
 }

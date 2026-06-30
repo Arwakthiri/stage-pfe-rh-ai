@@ -1,0 +1,2 @@
+# Déposez vos fichiers PDF RH de Segula directement dans ce dossier de données à la racine du projet.
+# Le chatbot RAG analysera tous les fichiers PDF se trouvant ici.
